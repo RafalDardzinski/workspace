@@ -1,9 +1,5 @@
-#!/bin/bash
-
-set -euo pipefail
-
+#!/usr/bin/env bash
 REPO_BASE=$(dirname "$(dirname "${BASH_SOURCE[0]}")")
 REPO_HOMEDIR="${REPO_BASE}/homedir"
 
-rm -rf "$REPO_HOMEDIR"
-rsync -av --files-from="${REPO_BASE}/homedir.dotfiles.txt" --delete "${HOME}/" "${REPO_HOMEDIR}/"
+rsync -av "$REPO_HOMEDIR/" "$HOME/"
