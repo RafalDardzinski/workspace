@@ -2,12 +2,13 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="" # Starship handles the prompt.
 ZSH_DISABLE_COMPFIX="true" # Only because it's my local PC.
+ZSH_COMPDUMP="${XDG_STATE_HOME:-$HOME/.cache}/zsh/zcompdump"
 
 plugins=(git aws ansible dotnet fzf podman terraform colored-man-pages)
 source $ZSH/oh-my-zsh.sh
 
 # -- History config --
-HISTFILE="${HOME}/.zsh_history"
+HISTFILE="${XDG_STATE_HOME:-$HOME}/zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
 HIST_STAMPS="yyyy-mm-dd"
@@ -35,5 +36,6 @@ export EDITOR="nvim"
 export PAGER="less"
 export LESS='-R'
 
-# -- Aliases --
-alias vim=nvim
+for f in ${ZDOTDIR:-$HOME}/.zshrc.d/*.zsh(.N); do
+  source "$f"
+done

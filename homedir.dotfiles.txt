@@ -1,1 +1,4 @@
-.zshrc
+.config/tmux/
+.config/zsh/
+.config/zsh/.zshrc.d/
+.zshenv
