@@ -1,0 +1,14 @@
+fzf
+git
+neovim
+otf-firamono-nerd
+ranger
+rsync
+starship
+sudo
+tmux
+wget
+zsh
+zsh-autocomplete
+zsh-autosuggestions
+zsh-syntax-highlighting

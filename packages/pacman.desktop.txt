@@ -1,0 +1,16 @@
+fzf
+git
+neovim
+otf-firamono-nerd
+podman
+podman-compose
+podman-docker
+ranger
+rsync
+starship
+tmux
+wget
+zsh
+zsh-autocomplete
+zsh-autosuggestions
+zsh-syntax-highlighting

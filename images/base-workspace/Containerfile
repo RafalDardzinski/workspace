@@ -1,0 +1,38 @@
+# syntax=docker/dockerfile:1.7
+FROM archlinux:base
+
+ARG USERNAME=developer
+ARG UID=1000
+ARG GID=1000
+
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    PATH=/home/${USERNAME}/.local/bin:$PATH
+
+LABEL org.opencontainers.image.title="workspace-base" \
+      org.opencontainers.image.description="Base workspace container with workflow-agnostic dotfiles." \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.Authors="Rafał Dardziński"
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+COPY packages/pacman.devenv.base.txt /tmp/packages.txt
+
+RUN --mount=type=cache,target=/var/cache/pacman \
+    pacman -Sy --noconfirm archlinux-keyring && \
+    pacman -Syu --noconfirm && \
+    pacman -S --noconfirm --needed - < /tmp/packages.txt && \
+    update-ca-trust
+
+RUN groupadd -g "${GID}" "${USERNAME}" && \
+    useradd -m -u "${UID}" -g "${GID}" -s /bin/zsh "${USERNAME}" 
+
+WORKDIR /home/${USERNAME}
+USER ${USERNAME}
+
+RUN zsh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+RUN mkdir -p .local/state
+
+COPY --chown=${UID}:${GID} homedir/ /home/${USERNAME}/
+
+CMD ["zsh", "-il"]
