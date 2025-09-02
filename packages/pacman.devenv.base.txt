@@ -2,6 +2,7 @@ base-devel
 fzf
 git
 neovim
+nvm
 otf-firamono-nerd
 ranger
 rsync

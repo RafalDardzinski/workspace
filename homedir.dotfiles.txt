@@ -1,3 +1,4 @@
+.config/nvim/lua/mappings.lua
 .config/tmux/
 .config/zsh/
 .config/zsh/.zshrc.d/

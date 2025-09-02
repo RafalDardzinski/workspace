@@ -1,6 +1,7 @@
 fzf
 git
 neovim
+nvm
 otf-firamono-nerd
 podman
 podman-compose

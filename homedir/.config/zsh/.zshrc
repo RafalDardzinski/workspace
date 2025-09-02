@@ -39,3 +39,5 @@ export LESS='-R'
 for f in ${ZDOTDIR:-$HOME}/.zshrc.d/*.zsh(.N); do
   source "$f"
 done
+
+source /usr/share/nvm/init-nvm.sh
