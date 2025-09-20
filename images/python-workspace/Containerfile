@@ -1,0 +1,22 @@
+# syntax=docker/dockerfile:1.7
+FROM workspace-base
+
+ARG USERNAME=developer
+
+LABEL org.opencontainers.image.title="workspace-python" \
+      org.opencontainers.image.description="Python-focused workspace." \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.Authors="Rafał Dardziński"
+
+USER root
+RUN curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh \
+  && bash /tmp/miniconda.sh -b -p /opt/conda \
+  && rm /tmp/miniconda.sh
+
+# Add conda to path for all users
+ENV PATH=/opt/conda/bin:$PATH
+
+RUN conda init zsh
+
+USER ${USERNAME}
+WORKDIR /home/${USERNAME}
