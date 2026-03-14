@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-REPO_BASE=$(dirname "$(dirname "${BASH_SOURCE[0]}")")
-REPO_HOMEDIR="${REPO_BASE}/homedir"
-
-rsync -av "$REPO_HOMEDIR/" "$HOME/"
