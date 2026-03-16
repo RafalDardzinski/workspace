@@ -6,3 +6,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # ZSH
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
+# uv
+export PATH="/home/palmer/.local/share/../bin:$PATH"
