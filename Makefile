@@ -8,7 +8,8 @@ setup_linux_arch:
 	bash setup/03_ohmyzsh.sh
 
 sync_linux:
-	stow -d $(DOTFILES) -t $(HOME) linux
+	rm "$(HOME)/.config/nvim/lua/mappings.lua" || true
+	stow -d $(DOTFILES) -t $(HOME) linux 
 
 sync_macos:
 	stow -d $(DOTFILES) -t $(HOME) macos 
