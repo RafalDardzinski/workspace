@@ -12,6 +12,7 @@ pacman -S \
   rsync \
   ripgrep \
   starship \
+  stow \
   tmux \
   tree-sitter-cli \
   yazi \
