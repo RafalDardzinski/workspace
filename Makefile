@@ -1,6 +1,6 @@
 .PHONY: apply_dotfiles
 apply_dotfiles: | prepare_homedir
-	stow --dotfiles -d dotfiles -t "$(HOME)" .
+	stow --dotfiles -d dotfiles -t "$(HOME)" tmux
 
 prepare_homedir:
 	set -a && \
@@ -16,13 +16,15 @@ install_packages_arch:
 	sudo ./packages/pacman.core.sh
 
 .PHONY: install_ohmyzsh
-install_ohmyzsh: apply_dotfiles
+install_ohmyzsh: 
+	stow --dotfiles -d dotfiles -t "$(HOME)" zsh
 	./packages/oh-my-zsh.sh
 
 .PHONY: install_nvchad
-install_nvchad: apply_dotfiles
+install_nvchad: 
 	./packages/nvchad.sh
+	stow --dotfiles -d dotfiles -t "$(HOME)" nvim
 
 .PHONY: workspace_arch
-workspace_arch: install_packages_arch install_ohmyzsh install_nvchad
+workspace_arch: install_packages_arch install_ohmyzsh install_nvchad apply_dotfiles
 

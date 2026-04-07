@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Installs core packages.
 
-pacman -S \
+pacman -Syu --noconfirm \
   curl \
   neovim \
   nvm \
