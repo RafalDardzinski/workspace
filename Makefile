@@ -1,3 +1,3 @@
 .PHONY: set_dotfiles
 set_dotfiles:
-	stow --dotfiles -d dotfiles -t "$HOME" .
+	stow --dotfiles -d dotfiles -t "$(HOME)" .
