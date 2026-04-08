@@ -4,7 +4,7 @@ apply_dotfiles: | prepare_homedir
 
 prepare_homedir:
 	set -a && \
-		. dotfiles/dot-zshenv && \
+		. dotfiles/zsh/dot-zshenv && \
 		set +a && \
 		mkdir -p $$XDG_CACHE_HOME && \
 		mkdir -p $$XDG_CONFIG_HOME && \
