@@ -12,5 +12,5 @@ NVIM_CONFIG="${XDG_CONFIG_HOME}/nvim"
 mkdir -p "$NVIM_CONFIG"
 
 git clone https://github.com/NvChad/starter "$NVIM_CONFIG" && \
-  nvim && \
+  zsh -ic "nvim" && \
   rm -rf "$NVIM_CONFIG/.git"
