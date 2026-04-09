@@ -16,16 +16,20 @@ _prepare_homedir:
 
 .PHONY: _install_packages_arch
 _install_packages_arch:
-	sudo ./packages/pacman.core.sh
+	sudo ./shell/pacman.core.sh
 
 .PHONY: _install_ohmyzsh
 _install_ohmyzsh: 
 	stow --dotfiles -d dotfiles -t "$(HOME)" zsh
-	./packages/oh-my-zsh.sh
+	./shell/oh-my-zsh.sh
+
+.PHONY: _install_nodejs
+_install_nodejs:
+	./shell/node-lts.sh
 
 .PHONY: _install_nvchad
-_install_nvchad: 
-	./packages/nvchad.sh
+_install_nvchad: _install_nodejs
+	./shell/nvchad.sh
 	stow --dotfiles -d dotfiles -t "$(HOME)" nvim 
 
 .PHONY: workspace_arch_base
