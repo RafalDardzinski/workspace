@@ -1,8 +1,11 @@
-.PHONY: apply_dotfiles
-apply_dotfiles: | prepare_homedir
+.DEFAULT_GOAL := workspace_arch_base
+
+.PHONY: _apply_dotfiles
+_apply_dotfiles: _prepare_homedir
 	stow --dotfiles -d dotfiles -t "$(HOME)" tmux
 
-prepare_homedir:
+.PHONY: _prepare_homedir
+_prepare_homedir:
 	set -a && \
 		. dotfiles/zsh/dot-zshenv && \
 		set +a && \
@@ -11,20 +14,22 @@ prepare_homedir:
 		mkdir -p $$XDG_DATA_HOME && \
 		mkdir -p $$XDG_STATE_HOME
 
-.PHONY: install_packages_arch
-install_packages_arch:
+.PHONY: _install_packages_arch
+_install_packages_arch:
 	sudo ./packages/pacman.core.sh
 
-.PHONY: install_ohmyzsh
-install_ohmyzsh: 
+.PHONY: _install_ohmyzsh
+_install_ohmyzsh: 
 	stow --dotfiles -d dotfiles -t "$(HOME)" zsh
 	./packages/oh-my-zsh.sh
 
-.PHONY: install_nvchad
-install_nvchad: 
+.PHONY: _install_nvchad
+_install_nvchad: 
 	./packages/nvchad.sh
-	stow --dotfiles -d dotfiles -t "$(HOME)" nvim
+	stow --dotfiles -d dotfiles -t "$(HOME)" nvim 
 
-.PHONY: workspace_arch
-workspace_arch: install_packages_arch install_ohmyzsh install_nvchad apply_dotfiles
+.PHONY: workspace_arch_base
+workspace_arch_base: _prepare_homedir _install_packages_arch _install_ohmyzsh _install_nvchad _apply_dotfiles
+	sudo chsh -s /usr/bin/zsh
+	echo "Finished setting up workspace: Arch Linux Base"
 
