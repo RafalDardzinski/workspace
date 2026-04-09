@@ -31,8 +31,9 @@ _install_nodejs:
 
 .PHONY: _install_nvchad
 _install_nvchad: _install_nodejs _prepare_homedir
-	./shell/nvchad.sh
 	stow --dotfiles -d dotfiles -t "$(HOME)" nvim
+	@printf '%s\n' 'NvChad installed. Run it and do :MasonInstallAll and :TSInstallAll'
+
 
 .PHONY: workspace_arch_base
 workspace_arch_base: _prepare_homedir _install_packages_arch _install_ohmyzsh _install_nvchad _apply_dotfiles
