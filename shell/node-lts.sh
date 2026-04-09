@@ -3,4 +3,4 @@
 
 set -eo pipefail
 
-nvm install --lts
+zsh -ic "nvm install --lts"

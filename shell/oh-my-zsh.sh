@@ -11,5 +11,5 @@ fi
 mkdir -p $ZDOTDIR
 
 RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+zsh -ic "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
 && if ! grep -q "source ${ZDOTDIR}/.ohmyzshrc" "${ZDOTDIR}/.zshrc"; then printf '%s\n' "source ${ZDOTDIR}/.ohmyzshrc" >> "${ZDOTDIR}/.zshrc"; fi
