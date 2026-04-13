@@ -1,9 +1,13 @@
 SHELL := /bin/sh
 .DEFAULT_GOAL := workspace_arch_base
 
+define stow_cfg
+	stow --dotfiles -d dotfiles -t "$(HOME)" $(1)
+endef
+
 .PHONY: _apply_dotfiles
 _apply_dotfiles: _prepare_homedir
-	stow --dotfiles -d dotfiles -t "$(HOME)" tmux
+	$(call stow_cfg,tmux)
 
 .PHONY: _prepare_homedir
 _prepare_homedir:
@@ -22,7 +26,7 @@ _install_packages_arch:
 
 .PHONY: _install_ohmyzsh
 _install_ohmyzsh: _prepare_homedir
-	stow --dotfiles -d dotfiles -t "$(HOME)" zsh
+	$(call stow_cfg,zsh)
 	./shell/oh-my-zsh.sh
 
 .PHONY: _install_nodejs
@@ -31,8 +35,8 @@ _install_nodejs:
 
 .PHONY: _install_nvchad
 _install_nvchad: _install_nodejs _prepare_homedir
-	stow --dotfiles -d dotfiles -t "$(HOME)" nvim
-	@printf '%s\n' 'NvChad installed. Run it and do :MasonInstallAll and :TSInstallAll'
+	$(call stow_cfg,nvim)
+	@printf '%s\n' 'NvChad installed. Run it and do :TSInstallAll and :MasonInstallAll'
 
 
 .PHONY: workspace_arch_base

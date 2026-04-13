@@ -51,6 +51,7 @@ return {
 
   {
     "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
     config = function()
       require "configs.mason_nvim_dap"
     end,

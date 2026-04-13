@@ -3,6 +3,7 @@ mnd.setup {
   ensure_installed = {
     "js",
     "python",
+    "bash",
   },
 }
 
