@@ -1,1 +1,0 @@
-* Mount ssh-agent socket in run- and start- makefile targets.

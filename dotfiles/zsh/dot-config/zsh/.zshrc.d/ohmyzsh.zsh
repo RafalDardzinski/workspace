@@ -1,0 +1,8 @@
+export ZSH="${XDG_CONFIG_HOME}/zsh/ohmyzsh"
+ZSH_THEME="" # Starship handles the prompt.
+ZSH_DISABLE_COMPFIX="true" # Only because it's my local PC.
+ZSH_COMPDUMP="${XDG_STATE_HOME:-$HOME/.cache}/zsh/zcompdump"
+
+plugins=(git aws ansible dotnet fzf podman terraform colored-man-pages)
+source "${ZSH}/oh-my-zsh.sh"
+
