@@ -2,7 +2,9 @@
 # Installs core packages.
 
 pacman -Syu --noconfirm \
+  aspnet-runtime \
   curl \
+  dotnet-sdk \
   neovim \
   nvm \
   otf-firamono-nerd \
