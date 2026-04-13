@@ -50,16 +50,27 @@ return {
   },
 
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    config = function()
+      require "configs.mason_nvim_dap"
+    end,
+    dependencies = {
+      "mason-org/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+  },
+
+  {
     "danymat/neogen",
     opts = {},
     cmd = "Neogen",
     keys = {
       {
-       "<leader>ca",
-       function()
-         require("neogen").generate()
-       end,
-       desc = "Generate annotation",
+        "<leader>ca",
+        function()
+          require("neogen").generate()
+        end,
+        desc = "Generate annotation",
       },
     },
   },
