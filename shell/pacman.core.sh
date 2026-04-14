@@ -18,6 +18,7 @@ pacman -Syu --noconfirm \
   tmux \
   tree-sitter-cli \
   yazi \
+  zip \
   zsh \
   zsh-autocomplete \
   zsh-autosuggestions \
