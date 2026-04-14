@@ -31,6 +31,11 @@ return {
   },
 
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvimtree",
+  },
+
+  {
     "mfussenegger/nvim-dap",
     config = function()
       require "configs.dap"

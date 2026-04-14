@@ -7,7 +7,7 @@ local options = {
     json = { "prettier" },
     scss = { "prettier" },
     markdown = { "prettier" },
-    yaml = { "prettier" },
+    yaml = { "yamlfmt" },
   },
 
   format_on_save = {

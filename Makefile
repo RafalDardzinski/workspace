@@ -38,9 +38,21 @@ _install_nvchad: _install_nodejs _prepare_homedir
 	$(call stow_cfg,nvim)
 	@printf '%s\n' 'NvChad installed. Run it and do :TSInstallAll and :MasonInstallAll'
 
+.PHONY: config_backup
+config_backup:
+	./shell/configs-backup.sh zsh tmux nvim
+
+.PHONY: config_apply
+config_apply:
+	$(call stow_cfg,zsh)
+	$(call stow_cfg,tmux)
+	$(call stow_cfg,nvim)
 
 .PHONY: workspace_arch_base
 workspace_arch_base: _prepare_homedir _install_packages_arch _install_ohmyzsh _install_nvchad _apply_dotfiles
 	chsh -s /usr/bin/zsh
 	@printf '%s\n' 'Finished setting up workspace: Arch Linux Base'
 
+.PHONY: workspace_macos_base
+workspace_macos_base: _prepare_homedir _install_ohmyzsh _install_nvchad _apply_dotfiles
+	@printf '%s\n' 'Finished setting up workspace: macOS Base'
