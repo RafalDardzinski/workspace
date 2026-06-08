@@ -26,6 +26,7 @@ return {
         "bash",
         "json",
         "c_sharp",
+        "dockerfile",
       },
     },
   },
@@ -78,6 +79,22 @@ return {
         end,
         desc = "Generate annotation",
       },
+    },
+  },
+
+  {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewClose",
+      "DiffviewFileHistory",
+    },
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = false,
     },
   },
 }

@@ -8,6 +8,7 @@ local options = {
     scss = { "prettier" },
     markdown = { "prettier" },
     yaml = { "yamlfmt" },
+    dockerfile = { "dockerfmt" },
   },
 
   format_on_save = {

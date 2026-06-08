@@ -8,7 +8,8 @@ local servers = {
   eslint = {},
   csharp_ls = {},
   bashls = {},
-  ansiblels = {}
+  ansiblels = {},
+  dockerls = {},
 }
 
 for name, opts in pairs(servers) do

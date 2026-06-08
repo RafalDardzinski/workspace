@@ -7,8 +7,8 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected line(s) down"})
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected line(s) up"})
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected line(s) down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected line(s) up" })
 
 -- Dap
 map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle Breakpoint" })
@@ -24,3 +24,6 @@ map("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Termin
 -- dapui
 map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Toggle UI" })
 map("n", "<leader>de", "<cmd>lua require'dapui'.eval()<CR>", { desc = "Evaluate" })
+
+-- gitsigns
+map("n", "<leader>gb", "<cmd>lua require'gitsigns'.blame()<CR>", { desc = "Git blame" })
