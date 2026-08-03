@@ -71,15 +71,6 @@ return {
     "danymat/neogen",
     opts = {},
     cmd = "Neogen",
-    keys = {
-      {
-        "<leader>ca",
-        function()
-          require("neogen").generate()
-        end,
-        desc = "Generate annotation",
-      },
-    },
   },
 
   {

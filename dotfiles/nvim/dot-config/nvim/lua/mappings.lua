@@ -10,6 +10,8 @@ map("i", "jk", "<ESC>")
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected line(s) down" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected line(s) up" })
 
+map("n", "<leader>c.", vim.lsp.buf.code_action, { desc = "Code action" })
+
 -- Dap
 map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle Breakpoint" })
 map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Continue" })
@@ -27,3 +29,6 @@ map("n", "<leader>de", "<cmd>lua require'dapui'.eval()<CR>", { desc = "Evaluate"
 
 -- gitsigns
 map("n", "<leader>gb", "<cmd>lua require'gitsigns'.blame()<CR>", { desc = "Git blame" })
+
+-- neogen
+map("n", "<leader>cd", "<cmd>lua require'neogen'.generate()<CR>", { desc = "Generate annotation" })
